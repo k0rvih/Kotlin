@@ -35,10 +35,12 @@ object HelloWorld : BuildType({
     name = "Hello world"
 
     steps {
-        powerShell {
-            name = "PS"
-            scriptMode = script {
-                content = "get-date"
+        insert(1){
+            powerShell {
+                name = "PS"
+                scriptMode = script {
+                    content = "get-date"
+                }
             }
         }
     }
