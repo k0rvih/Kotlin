@@ -36,9 +36,6 @@ object HelloWorld : BuildType({
     name = "Hello world"
 
     steps {
-        script {
-            scriptContent = "echo 'Hello world!'"
-        }
         powerShell {
             name = "powershell"
             scriptMode = script {
