@@ -26,7 +26,7 @@ To debug in IntelliJ Idea, open the 'Maven Projects' tool window (View
 version = "2018.2"
 
 project {
-    description = "Test Kotlin"
+    description = "Hello test world!"
 
     buildType(HelloWorld)
 }
