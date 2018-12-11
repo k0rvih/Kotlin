@@ -1,4 +1,3 @@
-import jdk.jfr.Description
 import jetbrains.buildServer.configs.kotlin.v2018_2.*
 import jetbrains.buildServer.configs.kotlin.v2018_2.buildSteps.script
 
@@ -27,7 +26,8 @@ To debug in IntelliJ Idea, open the 'Maven Projects' tool window (View
 version = "2018.2"
 
 project {
-    Description = "Hello test world!"
+    description = "Test Kotlin"
+
     buildType(HelloWorld)
 }
 
