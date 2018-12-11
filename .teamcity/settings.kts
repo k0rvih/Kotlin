@@ -36,17 +36,12 @@ object HelloWorld : BuildType({
     name = "Hello world"
 
     steps {
-        powerShell {
-            name = "powershell"
-            scriptMode = script {
-                content = "Get-Date"
-            }
-        }
-        powerShell {
-            name = "powers2"
-            scriptMode = script {
-                content = "Get-ChildItem"
-            }
+        step {
+            name = "Restore Nuget Packages"
+            type = "jb.nuget.installer"
+            param("nuget.path", "%teamcity.tool.NuGet.CommandLine.DEFAULT%")
+            param("nuget.updatePackages.mode", "sln")
+            param("sln.path", "%SolutionPath%")
         }
     }
 })
