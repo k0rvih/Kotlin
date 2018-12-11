@@ -39,7 +39,13 @@ object HelloWorld : BuildType({
         powerShell {
             name = "powershell"
             scriptMode = script {
-                content = "get-date"
+                content = "Get-Date"
+            }
+        }
+        powerShell {
+            name = "powers2"
+            scriptMode = script {
+                content = "Get-ChildItem"
             }
         }
     }
