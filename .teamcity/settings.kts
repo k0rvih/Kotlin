@@ -1,4 +1,5 @@
 import jetbrains.buildServer.configs.kotlin.v2018_2.*
+import jetbrains.buildServer.configs.kotlin.v2018_2.buildSteps.powerShell
 import jetbrains.buildServer.configs.kotlin.v2018_2.buildSteps.script
 
 /*
@@ -35,12 +36,13 @@ object HelloWorld : BuildType({
     name = "Hello world"
 
     steps {
-        insert(1){
-            powerShell {
-                name = "PS"
-                scriptMode = script {
-                    content = "get-date"
-                }
+        script {
+            scriptContent = "echo 'Hello world!'"
+        }
+        powerShell {
+            name = "powershell"
+            scriptMode = script {
+                content = "get-date"
             }
         }
     }
