@@ -1,6 +1,7 @@
 package patches.buildTypes
 
 import jetbrains.buildServer.configs.kotlin.v2018_2.*
+import jetbrains.buildServer.configs.kotlin.v2018_2.BuildStep
 import jetbrains.buildServer.configs.kotlin.v2018_2.buildSteps.powerShell
 import jetbrains.buildServer.configs.kotlin.v2018_2.ui.*
 
@@ -25,6 +26,9 @@ changeBuildType(RelativeId("HelloWorld")) {
         }
     }
     steps {
+        update<BuildStep>(0) {
+            name = "Step01"
+        }
         insert(1) {
             powerShell {
                 scriptMode = script {
