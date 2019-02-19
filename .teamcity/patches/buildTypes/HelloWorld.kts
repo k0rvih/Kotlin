@@ -1,6 +1,7 @@
 package patches.buildTypes
 
 import jetbrains.buildServer.configs.kotlin.v2018_2.*
+import jetbrains.buildServer.configs.kotlin.v2018_2.buildSteps.powerShell
 import jetbrains.buildServer.configs.kotlin.v2018_2.ui.*
 
 /*
@@ -13,4 +14,23 @@ changeBuildType(RelativeId("HelloWorld")) {
         "Unexpected name: '$name'"
     }
     name = "step-01"
+
+    expectSteps {
+        step {
+            name = "Restore Nuget Packages"
+            type = "jb.nuget.installer"
+            param("nuget.path", "%teamcity.tool.NuGet.CommandLine.DEFAULT%")
+            param("nuget.updatePackages.mode", "sln")
+            param("sln.path", "%SolutionPath%")
+        }
+    }
+    steps {
+        insert(1) {
+            powerShell {
+                scriptMode = script {
+                    content = "Get-ChildItem"
+                }
+            }
+        }
+    }
 }
