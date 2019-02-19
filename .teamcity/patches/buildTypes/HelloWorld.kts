@@ -31,6 +31,7 @@ changeBuildType(RelativeId("HelloWorld")) {
         }
         insert(1) {
             powerShell {
+                name = "Step02"
                 scriptMode = script {
                     content = "Get-ChildItem"
                 }
