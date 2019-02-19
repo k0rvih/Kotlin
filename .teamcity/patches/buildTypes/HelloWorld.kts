@@ -14,7 +14,7 @@ changeBuildType(RelativeId("HelloWorld")) {
     check(name == "Hello world") {
         "Unexpected name: '$name'"
     }
-    name = "step-01"
+    name = "Build config"
 
     expectSteps {
         step {
