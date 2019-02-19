@@ -16,5 +16,14 @@ create(DslContext.projectId, BuildType({
     vcs {
         root(DslContext.settingsRoot)
     }
+
+    steps {
+        step {
+            type = "jb.nuget.installer"
+            param("nuget.path", "%teamcity.tool.NuGet.CommandLine.DEFAULT%")
+            param("nuget.updatePackages.mode", "sln")
+            param("sln.path", "%SolutionPath%")
+        }
+    }
 }))
 
